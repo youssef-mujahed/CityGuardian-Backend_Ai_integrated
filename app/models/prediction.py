@@ -1,6 +1,5 @@
-from sqlalchemy import Column, DateTime, Integer, Float, Boolean, JSON
+from sqlalchemy import Column, DateTime, Integer, Float, Boolean, JSON, func
 from sqlalchemy.dialects.postgresql import UUID
-from sqlalchemy.sql import func
 import uuid
 from app.database.base import Base
 
