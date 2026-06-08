@@ -2,7 +2,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.v1 import auth, incidents, routes, risk, sms
 from app.services.ml_service import MLService
-
 app = FastAPI(
     title="AI Traffic Management System",
     description="Smart Traffic & Emergency Response System",
