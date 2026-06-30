@@ -50,3 +50,9 @@ class Token(BaseModel):
     access_token: str
     token_type: str = "bearer"
     user: UserResponse
+    
+class RegisterWithPhoneRequest(BaseModel):
+    firebase_id_token: str
+    national_id: str
+    password: str = Field(..., min_length=6)
+    full_name: str = Field(..., min_length=2)

@@ -24,6 +24,10 @@ class Settings(BaseSettings):
     OPENROUTESERVICE_API_KEY: str = ""
     SMS_SENDER_EMAIL: str = os.getenv("SMS_SENDER_EMAIL", "")
     SMS_SENDER_PASSWORD: str = os.getenv("SMS_SENDER_PASSWORD", "")
+    
+    
+    #firebase credintials
+    FIREBASE_CREDENTIALS_PATH: str = "firebase-credentials.json"
     class Config:
         env_file = ".env"
         extra = "ignore"

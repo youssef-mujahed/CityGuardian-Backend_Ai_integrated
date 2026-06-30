@@ -32,6 +32,8 @@ class IncidentUpdate(BaseModel):
     severity: Optional[int] = Field(None, ge=1, le=3)
     description: Optional[str] = None
 
+from typing import Optional
+
 class IncidentResponse(BaseModel):
     id: UUID
     type: IncidentType
@@ -40,8 +42,10 @@ class IncidentResponse(BaseModel):
     longitude: float
     status: IncidentStatus
     source: IncidentSource
-    reported_by: UUID
+    reported_by: Optional[UUID] = None  # <-- أضف Optional
+    verified_by: Optional[UUID] = None  # <-- أضف Optional لو موجود
     ai_confidence: Optional[float] = None
     description: Optional[str] = None
     created_at: datetime
     resolved_at: Optional[datetime] = None
+    image_url: Optional[str] = None  # <-- أضف لو مش موجود

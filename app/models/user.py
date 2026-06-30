@@ -22,3 +22,4 @@ class User(Base):
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     last_login = Column(DateTime(timezone=True), nullable=True)
+    firebase_uid = Column(String(255), unique=True, nullable=True)

@@ -37,3 +37,4 @@ class Incident(Base):
     description = Column(Text, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     resolved_at = Column(DateTime(timezone=True), nullable=True)
+    image_url = Column(Text, nullable=True)

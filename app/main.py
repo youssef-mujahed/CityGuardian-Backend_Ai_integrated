@@ -2,6 +2,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.v1 import auth, incidents, routes, risk, sms
 from app.services.ml_service import MLService
+from app.api.v1 import detection
+
+
+
 app = FastAPI(
     title="AI Traffic Management System",
     description="Smart Traffic & Emergency Response System",
@@ -29,6 +33,8 @@ app.include_router(incidents.router, prefix="/api/v1/incidents", tags=["Incident
 app.include_router(routes.router, prefix="/api/v1/routes", tags=["Routing"])
 app.include_router(risk.router, prefix="/api/v1/risk", tags=["Risk Prediction"])
 app.include_router(sms.router, prefix="/api/v1/sms", tags=["SMS Notifications"])
+app.include_router(detection.router, prefix="/api/v1/yolo", tags=["YOLO Detection"])
+app.include_router(detection.router, prefix="/api/v1", tags=["AI Detection"])
 
 @app.on_event("startup")
 async def startup_event():
@@ -37,6 +43,7 @@ async def startup_event():
     MLService.load_models()
     print("Server ready!")
     print("=" * 50)
+    
 
 @app.get("/")
 def root():
